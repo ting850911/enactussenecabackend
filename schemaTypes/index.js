@@ -1,5 +1,6 @@
 import department from './department'
 import position from './position'
-import post from './member'
+import member from './member'
+import intro from './intro'
 
-export const schemaTypes = [post, department, position]
+export const schemaTypes = [intro, department, position, member]
