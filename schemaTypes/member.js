@@ -1,26 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import createClient from '@sanity/client'
-const client = createClient({
-  projectId: 'td08n1oq',
-  dataset: 'production',
-  useCdn: true,
-  // Do not be tempted to use a dynamic value for the apiVersion.
-  // The reason for setting a static value is to prevent unexpected, breaking changes.
-  apiVersion: '2024-10-27',
-})
-
-function mapToOption(arr) {
-  return arr.map((item) => ({
-    title: item.title,
-    value: item.title,
-  }))
-}
-
-async function getDataSet(type) {
-  const query = `*[_type == "${type}"]`
-  const data = await client.fetch(query)
-  return mapToOption(data)
-}
 
 export default defineType({
   name: 'person',
@@ -51,23 +29,15 @@ export default defineType({
     defineField({
       name: 'department',
       title: 'Department',
-      type: 'string',
-      of: [{type: 'reference', to: {type: 'department'}}],
-      options: {
-        list: (await getDataSet('department')) || [],
-        layout: 'dropdown',
-      },
+      type: 'reference',
+      to: [{ type: 'department' }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'position',
       title: 'Position',
-      type: 'string',
-      of: [{type: 'reference', to: {type: 'position'}}],
-      options: {
-        list: (await getDataSet('position')) || [],
-        layout: 'dropdown',
-      },
+      type: 'reference',
+      to: [{ type: 'position' }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({

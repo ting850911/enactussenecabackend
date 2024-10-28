@@ -6,6 +6,13 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'department',
+      title: 'Department',
+      type: 'reference',
+      to: [{ type: 'department' }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
@@ -18,7 +25,8 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'department.title',
+      subtitle: 'title',
     },
   },
 })
