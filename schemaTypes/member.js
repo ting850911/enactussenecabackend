@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import { unsplashAssetSource } from 'sanity-plugin-asset-source-unsplash'
 
 export default defineType({
   name: 'person',
@@ -22,22 +23,23 @@ export default defineType({
       title: 'Personal Image',
       type: 'image',
       options: {
-        accept: 'image/jpeg',
+        accept: 'image/jpeg, image/jpg, image/png',
         hotspot: true,
+        sources: [unsplashAssetSource]
       },
     }),
     defineField({
       name: 'department',
       title: 'Department',
       type: 'reference',
-      to: [{ type: 'department' }],
+      to: [{type: 'department'}],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'position',
       title: 'Position',
       type: 'reference',
-      to: [{ type: 'position' }],
+      to: [{type: 'position'}],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -66,6 +68,12 @@ export default defineType({
         {
           title: 'Facebook',
           name: 'facebook',
+          type: 'url',
+          fieldset: 'social',
+        },
+        {
+          title: 'X (Twitter)',
+          name: 'x',
           type: 'url',
           fieldset: 'social',
         },
