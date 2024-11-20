@@ -69,6 +69,12 @@ export default defineType({
           type: 'url',
           fieldset: 'social',
         },
+        {
+          title: 'Email',
+          name: 'email',
+          type: 'string',
+          fieldset: 'social',
+        },
       ],
     }),
   ],
