@@ -2,7 +2,7 @@ import {defineField, defineType} from 'sanity'
 import { unsplashAssetSource } from 'sanity-plugin-asset-source-unsplash'
 
 export default defineType({
-  name: 'member',
+  name: 'person',
   title: 'Member',
   type: 'document',
   fields: [
