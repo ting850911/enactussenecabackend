@@ -21,6 +21,11 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'groupImg',
+      title: 'Organization Group Image',
+      type: 'image',
+    }),
+    defineField({
       name: 'video',
       title: 'Organization Video Link',
       type: 'url',
