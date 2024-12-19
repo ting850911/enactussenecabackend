@@ -8,13 +8,13 @@ export default defineType(
     type: 'document',
     fields: [
       defineField({
-        name: 'name',
+        name: 'projectName',
         title: 'Name',
         type: 'string',
         validation: (Rule) => Rule.required(),
       }),
       defineField({
-        name: 'picture',
+        name: 'projectImg',
         title: 'Picture',
         type: 'image',
         options: {
@@ -24,7 +24,7 @@ export default defineType(
         },
       }),
       defineField({
-        name: 'description',
+        name: 'desc',
         title: 'Description',
         type: 'text',
         validation: (Rule) => Rule.required(),
@@ -32,7 +32,8 @@ export default defineType(
     ],
     preview: {
       select: {
-        title: 'name',
+        media: 'projectImg',
+        title: 'projectName',
       },
     },
   },
