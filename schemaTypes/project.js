@@ -14,6 +14,11 @@ export default defineType(
         validation: (Rule) => Rule.required(),
       }),
       defineField({
+        name: 'link',
+        title: 'Project Link',
+        type: 'url',
+      }),
+      defineField({
         name: 'projectImg',
         title: 'Picture',
         type: 'image',
