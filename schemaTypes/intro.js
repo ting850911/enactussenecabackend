@@ -30,6 +30,13 @@ export default defineType({
       title: 'Organization Video Link',
       type: 'url',
     }),
+    
+    defineField({
+      name: 'initiativePrj',
+      title: 'initiative Project',
+      to: [{type: 'project'}],
+      type: 'reference',
+    }),
     defineField({
       name: 'desc',
       title: 'Organization Description',
