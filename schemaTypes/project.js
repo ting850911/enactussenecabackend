@@ -40,8 +40,8 @@ export default defineType(
         name: 'detail',
         title: 'Project Detail',
         type: 'text',
-        description: 'The project detail, no more than 500 words',
-        validation: (Rule) => Rule.required().max(500),
+        description: 'The project detail, no more than 1000 words',
+        validation: (Rule) => Rule.required().max(1000),
       }),
     ],
     preview: {
