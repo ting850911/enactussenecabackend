@@ -22,18 +22,26 @@ export default defineType(
         name: 'projectImg',
         title: 'Picture',
         type: 'image',
+        description: 'The image max height 600px',
         options: {
           accept: 'image/jpeg, image/jpg, image/png',
           hotspot: true,
           sources: [unsplashAssetSource]
         },
-        description: 'The image max height 600px',
       }),
       defineField({
-        name: 'desc',
-        title: 'Description',
+        name: 'overview',
+        title: 'Project Overview',
         type: 'text',
-        validation: (Rule) => Rule.required(),
+        description: 'The project overview, no more than 200 words',
+        validation: (Rule) => Rule.max(200),
+      }),
+      defineField({
+        name: 'detail',
+        title: 'Project Detail',
+        type: 'text',
+        description: 'The project detail, no more than 500 words',
+        validation: (Rule) => Rule.required().max(500),
       }),
     ],
     preview: {
