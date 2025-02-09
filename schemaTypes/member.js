@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import { unsplashAssetSource } from 'sanity-plugin-asset-source-unsplash'
+import {unsplashAssetSource} from 'sanity-plugin-asset-source-unsplash'
 
 export default defineType({
   name: 'member',
@@ -22,10 +22,11 @@ export default defineType({
       name: 'personImg',
       title: 'Personal Image',
       type: 'image',
+      description: 'The image size prefer 300x300px (square)',
       options: {
         accept: 'image/jpeg, image/jpg, image/png',
         hotspot: true,
-        sources: [unsplashAssetSource]
+        sources: [unsplashAssetSource],
       },
     }),
     defineField({
@@ -84,6 +85,14 @@ export default defineType({
           fieldset: 'social',
         },
       ],
+    }),
+    defineField({
+      name: 'priority',
+      title: 'Group Priority',
+      type: 'number',
+      description:
+        'The order of the member in meet our team page: 1 is the highest priority (Leadership group) and so on',
+      validation: (Rule) => Rule.integer().min(1).max(100).positive(),
     }),
   ],
   preview: {

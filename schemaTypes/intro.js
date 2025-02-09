@@ -15,6 +15,7 @@ export default defineType({
       name: 'logo',
       title: 'Organization Logo',
       type: 'image',
+      description: 'The image type prefer PNG',
       options: {
         accept: 'image/png',
       },
@@ -29,6 +30,7 @@ export default defineType({
       name: 'video',
       title: 'Organization Video Link',
       type: 'url',
+      description: 'The video link from Youtube if uploaded both video and image, the video will be displayed first',
     }),
     
     defineField({
@@ -36,6 +38,7 @@ export default defineType({
       title: 'initiative Project',
       to: [{type: 'project'}],
       type: 'reference',
+      description: 'The project that the organization is working on',
     }),
     defineField({
       name: 'desc',

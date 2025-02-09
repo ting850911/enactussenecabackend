@@ -27,6 +27,7 @@ export default defineType(
           hotspot: true,
           sources: [unsplashAssetSource]
         },
+        description: 'The image max height 600px',
       }),
       defineField({
         name: 'desc',
